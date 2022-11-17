@@ -9,9 +9,9 @@ function App() {
   return (
     <BrowserRouter>
         <Routes>
-          <Route path='/' element = {<Home/> } />
-          <Route path='/book/:id' element = {localStorage.getItem('token') !== null ? <Book/> : <Login/> }/>
-          <Route path='/addbook' element = {localStorage.getItem('token') !== null ? <AddBook/>  : <Login/>}/> 
+          <Route path='/' element = {<Home/>} />
+          <Route path='/book/:id' element = {<Book/>}/>
+          <Route path='/addbook' element = {<AddBook/>}/> 
           <Route path='/login' element = {<Login/>}/>
           <Route path='/signup' element = {<Signup/>}/>
         </Routes>

@@ -20,21 +20,10 @@ const Home = () => {
             setLoading(false)
         }catch(err) {return console.log(err)}
     }
-    
     useEffect(() => {
         getBooks()
     }, [])
-    console.log();
   return (
-    <> 
-     {loading ? 
-     <div className='d-flex justify-content-center align-items-center' style={{'height':'100vh'}}>
-       <div className="spinner-grow text-danger" role="status">
-        <span className="visually-hidden">Loading...</span>
-       </div>
-    </div>
-     
- : 
      <> 
         <NavBar/>
         <ToastContainer/>
@@ -46,15 +35,21 @@ const Home = () => {
            </div>
         </div> 
         :
-         <div className="d-flex justify-content-around align-items-center flex-wrap py-5 px-5" style={{'background':'rgb(238,174,202)',"background":"radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)"}}>
-         { books.map(ele => { return  <Cart key={ele._id} reviews={ele.reviews} userId = {ele.userId._id} releasedAt={ele.releasedAt} getBooks={getBooks} name={ele.userId.name}  title={ele.title}   _id={ele._id}   category={ele.category}/> })}
+        <> 
+        {loading ? 
+        <div className='d-flex justify-content-center align-items-center' style={{'height':'100vh'}}>
+          <div className="spinner-grow text-danger" role="status">
+            <span className="visually-hidden">Loading...</span>
+          </div>
         </div>
+        : 
+         <div className="d-flex justify-content-around align-items-center flex-wrap py-5 px-5" style={{'background':'rgb(238,174,202)',"background":"radial-gradient(circle, rgba(238,174,202,1) 0%, rgba(148,187,233,1) 100%)"}}>
+        { books.map(ele => { return  <Cart key={ele._id} reviews={ele.reviews} userId = {ele.userId._id} releasedAt={ele.releasedAt} getBooks={getBooks} name={ele.userId.name}  title={ele.title}   _id={ele._id}   category={ele.category}/> })}
+       </div>
+        }
+        </>
         }
      </>
-     }
-    
-        
-    </>
   )
 }
 
